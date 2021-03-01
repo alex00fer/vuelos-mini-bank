@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>MiniBank</title>
+       <link rel="stylesheet" href="css/bootstrap.min.css">
+       <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+       <nav class="navbar navbar-light bg-light">
+              <span class="navbar-brand mb-0 h1">MiniBank</span>
+       </nav>
+       <div class="container mt-5">
+              <div class="row border login-tab" id="start">
+                     <div class="col-6 p-5">
+                            <form onsubmit="login(this); return false" method="POST">
+                                   <div class="form-group">
+                                          <label for="cardnumber">Card number</label>
+                                          <input name="card" type="number" class="form-control" id="cardnumber"
+                                                 placeholder="XXXXXXXX" required>
+                                   </div>
+                                   <div class="form-group">
+                                          <label for="pin">PIN</label>
+                                          <input name="pin" type="password" class="form-control" id="pin" placeholder="XXXX" required>
+                                   </div>
+                                   <button type="submit" class="btn btn-primary">CONTINUE</button>
+                            </form>
+                     </div>
+                     <div class="col-6 p-5">
+                            <h3>Request a new card now for free and get 200€</h3>
+                            <button type="submit" class="btn btn-primary" onclick="register()">CREATE</button>
+                     </div>
+              </div>
+              <div class="row mt-5 border logged-tab">
+                     <div class="col-8">
+                            <div class="card">
+                                   <span class="card-number" id="card-number">
+                                          XXXXXXXX
+                                   </span>
+                                   <span class="card-pin" id="card-pin">
+                                          PIN XXXX
+                                   </span>
+                            </div>
+                            <div class="m-5">
+                                   <h5>Balance:</h5>
+                                   <h1 id="card-balance">--€</h1>
+                            </div>
+                     </div>
+                     <div class="col-4 mt-5">
+
+
+                            <form onsubmit="transfer(this); return false">
+                                   <h2>Transfer money</h2>
+                                   <div class="form-group">
+                                          <label for="targetcardnumber">Receiver card number</label>
+                                          <input name="targetCard" type="number" class="form-control" id="targetcardnumber"
+                                                 placeholder="XXXXXXXX">
+                                   </div>
+                                   <div class="form-group">
+                                          <label for="amount">Amount (€)</label>
+                                          <input name="amount" type="number" class="form-control" id="amount" placeholder="00">
+                                   </div>
+                                   <button type="submit" class="btn btn-primary">SEND</button>
+                            </form>
+
+                     </div>
+              </div>
+              <div class="row mt-5 border logged-tab">
+                     <div class="col-12 mt-4">
+                            <h2>Transaction history</h2>
+                            <table class="table">
+                                   <thead>
+                                          <tr>
+                                                 <th scope="col">#</th>
+                                                 <th scope="col">Type</th>
+                                                 <th scope="col">Money</th>
+                                                 <th scope="col">Old balance</th>
+                                                 <th scope="col">New balance</th>
+                                                 <th scope="col">Timestamp</th>
+                                          </tr>
+                                   </thead>
+                                   <tbody id="transactions-table">
+                                         
+                                   </tbody>
+                            </table>
+                            <p id="transactions-msg"></p>
+                     </div>
+              </div>
+       </div>
+
+       <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+div.card {
+       width: 500px;
+       height: 360px;
+       background-image: url(../img/credit_card.png);
+       border: none;
+}
+
+
+span.card-number {
+       position: absolute;
+       bottom: 90px;
+       left: 50px;
+       font-size: 3em;
+       font-weight: bold;
+       color: white;
+}
+
+span.card-pin {
+       position: absolute;
+       bottom: 40px;
+       right: 50px;
+       font-size: 2em;
+       color: white;
+}
